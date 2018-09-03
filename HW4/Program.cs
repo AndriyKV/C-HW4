@@ -8,7 +8,7 @@ namespace HW4
 {
     class Person
     {
-        //A two private fields
+        //A two private fields111
         private string _name;
         private int _birthYear;
         //B two properties for access
