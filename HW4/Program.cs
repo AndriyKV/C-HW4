@@ -37,24 +37,21 @@ namespace HW4
         //calculate the age 
         public int Age()
         {
-            int age = DateTime.Now.Year - _birthYear;
-            return age;
+            return DateTime.Now.Year - _birthYear; ;
         }
         //input information about person
-        public Person Input()
+        public void Input()//переробив на просто войд щоб не клонувати щоразу нову персону *1
         {
-            string name;
-            int birthYear;
             Console.Write("Name: ");
-            name = Console.ReadLine();
+            _name = Console.ReadLine();
             Console.Write("The birthday year: ");
-            while (!Int32.TryParse(Console.ReadLine(), out birthYear) || (birthYear > DateTime.Now.Year) 
-                || (birthYear <= (DateTime.Now.Year - 120)))
+            while (!Int32.TryParse(Console.ReadLine(), out _birthYear) || (_birthYear > DateTime.Now.Year) 
+                || (_birthYear <= (DateTime.Now.Year - 120)))
             {
                 Console.WriteLine("You have entered invalid value for 'year'. Check please and try again.");
                 Console.Write("\nThe birthday year: ");
             }
-            return new Person(name, birthYear);
+            //return new Person(_name, _birthYear);//*1
         }
         //change the name of person
         public string ChangeName()
@@ -93,7 +90,7 @@ namespace HW4
                 Person p = new Person();
                 persons[i] = p;
                 Console.WriteLine("\n Person #{0}", (i + 1));
-                persons[i] = persons[i].Input();
+                persons[i].Input(); //*1
             }
             //Output information about the name and age of each person
             Console.WriteLine("\n\tInformation about all persons:\n");
