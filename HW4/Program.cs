@@ -40,12 +40,12 @@ namespace HW4
             return DateTime.Now.Year - _birthYear; ;
         }
         //input information about person
-        public void Input()//переробив на просто войд щоб не клонувати щоразу нову персону *1
+        public void Input()// public Person Input() було / переробив на просто войд щоб не клонувати щоразу нову персону *1
         {
             Console.Write("Name: ");
             _name = Console.ReadLine();
             Console.Write("The birthday year: ");
-            while (!Int32.TryParse(Console.ReadLine(), out _birthYear) || (_birthYear > DateTime.Now.Year) 
+            while (!Int32.TryParse(Console.ReadLine(), out _birthYear) || (_birthYear > DateTime.Now.Year)
                 || (_birthYear <= (DateTime.Now.Year - 120)))
             {
                 Console.WriteLine("You have entered invalid value for 'year'. Check please and try again.");
