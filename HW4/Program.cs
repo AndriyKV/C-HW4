@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HW4
 {
-    class Person
+    public class Person
     {
         //A two private fields
         private string _name;
@@ -19,6 +19,7 @@ namespace HW4
                 return _name;
             }
         }
+
         public int BirthYear
         {
             get
@@ -26,19 +27,24 @@ namespace HW4
                 return _birthYear;
             }
         }
+
         //C default constructor and constructor with 2 parameters 
-        public Person() {}
+        public Person()
+        {
+        }
         public Person(string name, int birthYear)
         {
             _name = name;
             _birthYear = birthYear;
         }
+
         //D methods
         //calculate the age 
         public int Age()
         {
             return DateTime.Now.Year - _birthYear; ;
         }
+
         //input information about person
         public void Input()// public Person Input() було / переробив на просто войд щоб не клонувати щоразу нову персону *1
         {
@@ -53,12 +59,14 @@ namespace HW4
             }
             //return new Person(_name, _birthYear);//*1
         }
+
         //change the name of person
         public string ChangeName()
         {
             this._name = "Very Young";
             return this._name;
         }
+
         //output information about person
         public override string ToString()
         {
@@ -68,6 +76,7 @@ namespace HW4
         {
             Console.WriteLine(ToString());
         }
+
         //Persons with the same names
         public static bool operator == (Person first, Person second)
         {
@@ -78,6 +87,7 @@ namespace HW4
             return !(first == second);
         }
     }
+
     class Program
     {
         static void Main(string[] args)
@@ -92,6 +102,7 @@ namespace HW4
                 Console.WriteLine("\n Person #{0}", (i + 1));
                 persons[i].Input(); //*1
             }
+
             //Output information about the name and age of each person
             Console.WriteLine("\n\tInformation about all persons:\n");
             foreach (Person person in persons)
@@ -101,6 +112,7 @@ namespace HW4
             }
             Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
+
             //Output information about person with changed name (if age<16)
             Console.WriteLine("\n\tInformation about each person:");
             foreach (Person person in persons)
@@ -114,6 +126,7 @@ namespace HW4
             }
             Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
+
             //Output information about persons with the same names 
             Console.WriteLine("\n\tPersons with the same names:");
             for (int i = 0; i < 6; i++)
@@ -129,7 +142,8 @@ namespace HW4
                         Console.WriteLine();
                     }
                 }
-            }            
+            }       
+            
             Console.WriteLine("\nPress any key to exit.");
             Console.ReadKey();
         }
